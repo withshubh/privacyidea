@@ -586,7 +586,7 @@ class TokenClass(object):
         '''
         if otpkeylen is None:
             if hasattr(self, 'otpkeylen'):
-                otpkeylen = getattr(self, 'otpkeylen')
+                otpkeylen = self.otpkeylen
             else:
                 otpkeylen = 20
         return generate_otpkey(otpkeylen)
