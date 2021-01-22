@@ -417,9 +417,7 @@ class IdResolver (UserIdResolver):
                 ilVal = int(lVal.strip())
                 ihVal = int(hVal.strip())
                 if ihVal < ilVal:
-                    v = ihVal
-                    ihVal = ilVal
-                    ilVal = v
+                    ihVal, ilVal = ilVal, ihVal
             except:  # pragma: no cover
                 return ret
 
