@@ -112,8 +112,7 @@ class MachineApplication(MachineApplicationBase):
             raise ParameterError("Could not split password")
         current_token_counter = token_obj.token.count
         first_offline_counter = current_token_counter - count
-        if first_offline_counter < 0:
-            first_offline_counter = 0
+        first_offline_counter = max(first_offline_counter, 0)
         # find the value in the offline OTP values! This resets the token.count!
         matching_count = token_obj.check_otp(otpval, first_offline_counter, count)
         token_obj.set_otp_count(current_token_counter)
