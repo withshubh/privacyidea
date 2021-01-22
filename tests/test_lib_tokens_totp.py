@@ -228,8 +228,7 @@ class TOTPTokenTestCase(MyTestCase):
         # check if functions are returned
         for hl in ["sha1", "md5", "sha256", "sha512",
                    "sha224", "sha384", "", None]:
-            self.assertTrue(hasattr(TotpTokenClass.get_hashlib(hl),
-                                    '__call__'),
+            self.assertTrue(callable(TotpTokenClass.get_hashlib(hl)),
                             TotpTokenClass.get_hashlib(hl))
     
     def test_11_tokeninfo(self):
