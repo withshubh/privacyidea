@@ -259,7 +259,7 @@ class Connection(object):
 
     @staticmethod
     def _match_greater_than_or_equal(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         for entry in candidates:
             dn = entry.get("dn")
             if not dn.endswith(search_base):
@@ -274,7 +274,7 @@ class Connection(object):
 
     @staticmethod
     def _match_greater_than(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         for entry in candidates:
             dn = entry.get("dn")
             if not dn.endswith(search_base):
@@ -289,7 +289,7 @@ class Connection(object):
 
     @staticmethod
     def _match_less_than_or_equal(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         for entry in candidates:
             dn = entry.get("dn")
             if not dn.endswith(search_base):
@@ -304,7 +304,7 @@ class Connection(object):
 
     @staticmethod
     def _match_less_than(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         for entry in candidates:
             dn = entry.get("dn")
             if not dn.endswith(search_base):
@@ -319,7 +319,7 @@ class Connection(object):
 
     @staticmethod
     def _match_equal_to(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         match_using_regex = False
 
         if "*" in value:
@@ -375,7 +375,7 @@ class Connection(object):
 
     @staticmethod
     def _match_notequal_to(search_base, attribute, value, candidates):
-        matches = list()
+        matches = []
         match_using_regex = False
 
         if "*" in value:
@@ -447,8 +447,8 @@ class Connection(object):
 
     @staticmethod
     def _deDuplicate(results):
-        found = dict()
-        deDuped = list()
+        found = {}
+        deDuped = []
         for entry in results:
             dn = entry.get("dn")
             if not dn in found:
@@ -471,8 +471,8 @@ class Connection(object):
     def _search_not(self, base, search_filter, candidates=None):
         # Create empty candidates list as we need to use self.directory for
         # each search
-        candidates = list()
-        this_filter = list()
+        candidates = []
+        this_filter = []
 
         index = 0
         search_filter.remove("!")
@@ -525,7 +525,7 @@ class Connection(object):
         # Load the data from the directory, if we aren't passed any
         if candidates == [] or candidates is None:
             candidates = self.directory
-        this_filter = list()
+        this_filter = []
 
         index = 0
         search_filter.remove("&")
@@ -575,8 +575,8 @@ class Connection(object):
     def _search_or(self, base, search_filter, candidates=None):
         # Create empty candidates list as we need to use self.directory for
         # each search
-        candidates = list()
-        this_filter = list()
+        candidates = []
+        this_filter = []
 
         index = 0
         search_filter.remove("|")
@@ -626,10 +626,10 @@ class Connection(object):
     def search(self, search_base=None, search_scope=None,
                search_filter=None, attributes=None, paged_size=5,
                size_limit=0, paged_cookie=None):
-        s_filter = list()
-        candidates = list()
-        self.response = list()
-        self.result = dict()
+        s_filter = []
+        candidates = []
+        self.response = []
+        self.result = {}
 
         try:
             if isinstance(search_filter, bytes):

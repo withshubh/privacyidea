@@ -2194,7 +2194,7 @@ class PrePolicyDecoratorTestCase(MyApiTestCase):
         }
         webauthntoken_authz(request, None)
         self.assertEqual(request.all_data.get(WEBAUTHNACTION.REQ),
-                         list())
+                         [])
 
         # Not a WebAuthn authorization
         request = RequestMock()
@@ -2251,7 +2251,7 @@ class PrePolicyDecoratorTestCase(MyApiTestCase):
         }
         webauthntoken_authz(request, None)
         self.assertEqual(request.all_data.get(WEBAUTHNACTION.REQ),
-                         list())
+                         [])
 
         # Not a WebAuthn authorization
         request = RequestMock()
