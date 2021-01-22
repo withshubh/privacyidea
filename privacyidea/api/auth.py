@@ -317,14 +317,14 @@ def get_auth_token():
                                 "administrator": user_obj.login,
                                 "realm": user_obj.realm,
                                 "resolver": user_obj.resolver,
-                                "serial": details.get('serial', None),
+                                "serial": details.get('serial'),
                                 "info": u"{0!s}|loginmode={1!s}".format(log_used_user(user_obj),
                                                                         details.get("loginmode"))})
         else:
             g.audit_object.log({"user": user_obj.login,
                                 "realm": user_obj.realm,
                                 "resolver": user_obj.resolver,
-                                "serial": details.get('serial', None),
+                                "serial": details.get('serial'),
                                 "info": u"{0!s}|loginmode={1!s}".format(log_used_user(user_obj),
                                         details.get("loginmode"))})
 
