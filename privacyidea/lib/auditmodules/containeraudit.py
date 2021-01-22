@@ -60,7 +60,7 @@ class Audit(AuditBase):
 
     @property
     def has_data(self):
-        return any([x.has_data for x in self.write_modules])
+        return any(x.has_data for x in self.write_modules)
 
     def log(self, param):
         """
