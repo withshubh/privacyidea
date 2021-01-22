@@ -1316,9 +1316,9 @@ class PolicyTestCase(MyTestCase):
         self.assertEqual(set(), set(p['name'] for p in pols))
         # Allowed to delete on node 1 and node 2
         pols = P.match_policies(scope=SCOPE.ADMIN, adminuser="delete_admin", action=ACTION.DELETE, pinode="pinode1")
-        self.assertEqual(set({"delete_node2"}), set(p['name'] for p in pols))
+        self.assertEqual({"delete_node2"}, set(p['name'] for p in pols))
         pols = P.match_policies(scope=SCOPE.ADMIN, adminuser="delete_admin", action=ACTION.DELETE, pinode="pinode2")
-        self.assertEqual(set({"delete_node2"}), set(p['name'] for p in pols))
+        self.assertEqual({"delete_node2"}, set(p['name'] for p in pols))
 
         # Check what the user "enable_admin" is allowed to do
         pols = P.match_policies(scope=SCOPE.ADMIN, adminuser="enable_admin", action=ACTION.ENABLE, pinode="pinode1")
