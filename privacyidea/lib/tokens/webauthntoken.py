@@ -823,7 +823,7 @@ class WebAuthnTokenClass(TokenClass):
             ]
 
             # Since we are still enrolling the token, there should be exactly one challenge.
-            if not len(challengeobject_list):
+            if not challengeobject_list:
                 raise RegistrationError(
                     "The enrollment challenge does not exist or has timed out for {0!s}".format(serial))
             challengeobject = challengeobject_list[0]
@@ -884,7 +884,7 @@ class WebAuthnTokenClass(TokenClass):
 
                 if not description:
                     cn = web_authn_credential.attestation_cert.subject.get_attributes_for_oid(x509.NameOID.COMMON_NAME)
-                    description = cn[0].value if len(cn) else None
+                    description = cn[0].value if cn else None
 
             self.set_description(description or DEFAULT_DESCRIPTION)
 

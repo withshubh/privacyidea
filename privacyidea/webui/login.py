@@ -131,7 +131,7 @@ def single_page_application():
     customization_menu_file = Match.action_only(g, action=ACTION.CUSTOM_MENU,
                                                 scope=SCOPE.WEBUI)\
         .action_values(unique=True, allow_white_space_in_action=True, write_to_audit_log=False)
-    if len(customization_menu_file) and list(customization_menu_file)[0] \
+    if customization_menu_file and list(customization_menu_file)[0] \
             and sub_state not in [1, 2]:
         customization_menu_file = list(customization_menu_file)[0]
     else:
@@ -139,7 +139,7 @@ def single_page_application():
     customization_baseline_file = Match.action_only(g, action=ACTION.CUSTOM_BASELINE,
                                                     scope=SCOPE.WEBUI) \
         .action_values(unique=True, allow_white_space_in_action=True, write_to_audit_log=False)
-    if len(customization_baseline_file) and list(customization_baseline_file)[0] \
+    if customization_baseline_file and list(customization_baseline_file)[0] \
             and sub_state not in [1, 2]:
         customization_baseline_file = list(customization_baseline_file)[0]
     else:
@@ -147,14 +147,14 @@ def single_page_application():
 
     login_text = Match.action_only(g, action=ACTION.LOGIN_TEXT, scope=SCOPE.WEBUI) \
         .action_values(unique=True, allow_white_space_in_action=True, write_to_audit_log=False)
-    if len(login_text) and list(login_text)[0] and sub_state not in [1, 2]:
+    if login_text and list(login_text)[0] and sub_state not in [1, 2]:
         login_text = list(login_text)[0]
     else:
         login_text = ""
 
     gdpr_link = Match.action_only(g, action=ACTION.GDPR_LINK, scope=SCOPE.WEBUI) \
         .action_values(unique=True, allow_white_space_in_action=True, write_to_audit_log=False)
-    if len(gdpr_link) and list(gdpr_link)[0] and sub_state not in [1, 2]:
+    if gdpr_link and list(gdpr_link)[0] and sub_state not in [1, 2]:
         gdpr_link = list(gdpr_link)[0]
     else:
         gdpr_link = ""
