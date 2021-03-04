@@ -547,7 +547,7 @@ def auth_otppin(wrapped_function, *args, **kwds):
             #  the token
             user_object = token.user
             realms = token.get_realms()
-            if not user_object and len(realms):
+            if not user_object and realms:
                 # if the token has not owner, we take a realm.
                 user_object = User("", realm=realms[0])
         if not user_object:
