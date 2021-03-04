@@ -133,7 +133,7 @@ class TanTokenClass(PaperTokenClass):
         if "tans" in param:
             # init tokens with tans
             tans = param.get("tans").split()
-            tan_dict = {k: v for k, v in enumerate(tans)}
+            tan_dict = dict(enumerate(tans))
             # Avoid to generate TANs in the superclass PaperToken, since we get the tans from params
             param["papertoken_count"] = 0
             # Determine the otplen from the TANs
