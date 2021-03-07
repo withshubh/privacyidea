@@ -133,7 +133,7 @@ class AESHardwareSecurityModule(SecurityModule):  # pragma: no cover
 
     def _login(self):
         slotlist = self.pkcs11.getSlotList()
-        if not slotlist:
+        if not len(slotlist):
             raise HSMException("No HSM connected")
         if self.slot not in slotlist:
             raise HSMException("Slot {0:d} not present".format(self.slot))
