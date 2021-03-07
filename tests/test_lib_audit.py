@@ -470,7 +470,7 @@ class ContainerAuditTestCase(OverrideConfigTestCase):
         self.assertIsInstance(csv, types.GeneratorType)
         csv_list = [c for c in csv]
         self.assertGreater(len(csv_list), 0, csv_list)
-        self.assertTrue(any('something_test_35' in l for l in csv_list))
+        self.assertTrue(any(['something_test_35' in l for l in csv_list]))
 
     def test_20_container_audit_wrong_module(self):
         # Test what happens with a non-existing module
