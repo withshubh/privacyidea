@@ -1428,7 +1428,7 @@ def u2ftoken_allowed(request, action):
                                         user_object=request.User if request.User else None)\
             .action_values(unique=False)
 
-        if allowed_certs_pols and not _attestation_certificate_allowed(attestation_cert, allowed_certs_pols):
+        if len(allowed_certs_pols) and not _attestation_certificate_allowed(attestation_cert, allowed_certs_pols):
             log.warning("The U2F device {0!s} is not "
                         "allowed to be registered due to policy "
                         "restriction".format(
